@@ -30,7 +30,7 @@
         android:hint="username"
         android:paddingStart="20dp"
         android:textColorHint="@color/black"
-        android:textSize="25sp"
+        android:textSize="15sp"
         tools:ignore="RtlSymmetry" />
 
     <EditText
@@ -42,7 +42,7 @@
         android:hint="password"
         android:paddingStart="20dp"
         android:textColorHint="@color/black"
-        android:textSize="25sp"
+        android:textSize="15sp"
         tools:ignore="RtlSymmetry" />
 
     <Button
