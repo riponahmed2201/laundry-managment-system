@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.laundrymanagementsystem.database.DatabaseManager;
+import com.example.laundrymanagementsystem.model.Login;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
@@ -32,10 +36,17 @@ public class LoginActivity extends AppCompatActivity {
     private String getInputEmailValue;
     private String getInputPasswordValue;
 
+    DatabaseManager databaseManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //Set the toolbar title
+        this.setTitle("Login Page");
+
+        databaseManager = new DatabaseManager(LoginActivity.this);
 
         emailId = findViewById(R.id.email);
         passwordId = findViewById(R.id.password);
@@ -67,35 +78,47 @@ public class LoginActivity extends AppCompatActivity {
                 if (getInputEmailValue.isEmpty()) {
                     emailId.setError("Email is required.");
                     emailId.requestFocus();
-                    return;
-                }
-
-                if (!Patterns.EMAIL_ADDRESS.matcher(getInputEmailValue).matches()) {
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(getInputEmailValue).matches()) {
                     emailId.setError("Please enter a valid email.");
                     emailId.requestFocus();
-                    return;
-                }
-
-                if (getInputPasswordValue.isEmpty()) {
+                } else if (getInputPasswordValue.isEmpty()) {
                     passwordId.setError("Password is required.");
                     passwordId.requestFocus();
-                    return;
+                } else {
+                    ArrayList<Login> loginArrayList = databaseManager.getUserDetails(getInputEmailValue, getInputPasswordValue);
+
+                    String roleName;
+
+                    for (Login login : loginArrayList) {
+                        roleName = login.getRoleName();
+
+                        if (Objects.equals(roleName, "USER")) {
+                            Intent intent = new Intent(LoginActivity.this, PlaceOrderActivity.class);
+                            startActivity(intent);
+                        } else if (Objects.equals(roleName, "VENDOR")) {
+                            Intent intent = new Intent(LoginActivity.this, VendorHomeActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Invalid credentials info!", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
                 }
 
-                if (getInputEmailValue.equals(staticAdminEmail)) {
-                    Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
-                    startActivity(intent);
-                }
-
-                if (getInputEmailValue.equals(staticVendorEmail)) {
-                    Intent intent = new Intent(LoginActivity.this, VendorHomeActivity.class);
-                    startActivity(intent);
-                }
-
-                if (getInputEmailValue.equals(staticUserEmail)) {
-                    Intent intent = new Intent(LoginActivity.this, PlaceOrderActivity.class);
-                    startActivity(intent);
-                }
+//                if (getInputEmailValue.equals(staticAdminEmail)) {
+//                    Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+//                    startActivity(intent);
+//                }
+//
+//                if (getInputEmailValue.equals(staticVendorEmail)) {
+//                    Intent intent = new Intent(LoginActivity.this, VendorHomeActivity.class);
+//                    startActivity(intent);
+//                }
+//
+//                if (getInputEmailValue.equals(staticUserEmail)) {
+//                    Intent intent = new Intent(LoginActivity.this, PlaceOrderActivity.class);
+//                    startActivity(intent);
+//                }
             }
         });
     }

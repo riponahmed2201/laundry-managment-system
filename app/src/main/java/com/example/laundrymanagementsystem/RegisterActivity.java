@@ -38,6 +38,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        databaseManager = new DatabaseManager(RegisterActivity.this);
+
         getStaticRoleName = getResources().getStringArray(R.array.role_name);
 
         roleNameSpinnerId = findViewById(R.id.role_name_spinner_id);
@@ -62,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        // back to login activity
+        //back to login activity
         backLoginBtnId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,24 +117,22 @@ public class RegisterActivity extends AppCompatActivity {
 
             Log.d("TAG", " \nFull Name : " + fullName + " \nEmail : " + email + " \nAddress : " + address + " \nRole Name : " + roleName + " \nPhone Number : " + phoneNumber + " \nPassword : " + password);
 
-//            Register register = new Register(fullName, email, address, roleName, phoneNumber, password);
-//
-//            Log.d("TAG", "registerValidation: " + register);
-//
-//            long insertData = databaseManager.userRegister(register);
-//
-//            if (insertData > 0) {
-//
-//                Toast.makeText(this, "Registration success.", Toast.LENGTH_SHORT).show();
-//
-//                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-//
-//                finish();
-//                startActivity(intent);
-//
-//            } else {
-//                Toast.makeText(this, "Registration failed!", Toast.LENGTH_SHORT).show();
-//            }
+            Register register = new Register(fullName, email, address, roleName, phoneNumber, password);
+
+            long insertData = databaseManager.userRegister(register);
+
+            if (insertData > 0) {
+
+                Toast.makeText(this, "Registration success.", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+
+                finish();
+                startActivity(intent);
+
+            } else {
+                Toast.makeText(this, "Registration failed!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Laundry management system</string>
     <string name="login">Login</string>
-    <string name="email">email</string>
-    <string name="password">password</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
 
     <string-array name="role_name">
-        <item>Select Role Type…</item>
+        <item>Select Role Name</item>
         <item>USER</item>
         <item>VENDOR</item>
     </string-array>
