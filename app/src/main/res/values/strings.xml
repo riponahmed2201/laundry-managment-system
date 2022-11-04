@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">Laundry management system</string>
+    <string name="login">Login</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+
+    <string-array name="role_name">
+        <item>Select Role Type…</item>
+        <item>USER</item>
+        <item>VENDOR</item>
+    </string-array>
+
+    <string-array name="payment_option">
+        <item>Select Payment Option…</item>
+        <item>Visa Card</item>
+        <item>Nagad</item>
+        <item>Bikash</item>
+    </string-array>
+
+    <string-array name="select_vendor">
+        <item>Select Vendor</item>
+        <item>Ripon</item>
+        <item>Aziz</item>
+        <item>Siful</item>
+    </string-array>
+
 </resources>

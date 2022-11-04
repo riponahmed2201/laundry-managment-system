@@ -8,7 +8,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".RegisterActivity">
+    tools:context=".PlaceOrderActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,112 +25,75 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
                 android:gravity="center_horizontal"
-                android:text="Register"
+                android:text="Place Order"
                 android:textColor="@color/black"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
-            <Spinner
-                android:id="@+id/role_name_spinner_id"
+            <EditText
+                android:id="@+id/garment_category"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_gravity="left|center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edittextbackground"
+                android:hint="Garment Category"
+                android:paddingStart="20dp"
+                android:textColorHint="@color/black"
+                android:textSize="15sp"
+                tools:ignore="RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/garment_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edittextbackground"
+                android:hint="Garment Quantity"
+                android:paddingStart="20dp"
+                android:textColorHint="@color/black"
+                android:textSize="15sp"
+                tools:ignore="RtlSymmetry" />
+
+            <Spinner
+                android:id="@+id/payment_option_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittextbackground"
                 android:spinnerMode="dropdown"
+                android:textSize="15sp"
                 tools:ignore="RtlSymmetry" />
 
             <EditText
-                android:id="@+id/full_name"
+                android:id="@+id/order_placement"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittextbackground"
-                android:hint="Full Name"
+                android:hint="Order Placement"
                 android:paddingStart="20dp"
                 android:textColorHint="@color/black"
                 android:textSize="15sp"
                 tools:ignore="RtlSymmetry" />
 
-            <EditText
-                android:id="@+id/email"
+            <Spinner
+                android:id="@+id/select_vendor_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittextbackground"
-                android:hint="Email"
-                android:paddingStart="20dp"
-                android:textColorHint="@color/black"
-                android:textSize="15sp"
-                tools:ignore="RtlSymmetry" />
-
-            <EditText
-                android:id="@+id/address_ware_house"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/edittextbackground"
-                android:hint="Address/Warehouse"
-                android:paddingStart="20dp"
-                android:textColorHint="@color/black"
-                android:textSize="15sp"
-                tools:ignore="RtlSymmetry" />
-
-            <EditText
-                android:id="@+id/phone_number"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/edittextbackground"
-                android:hint="Phone Number"
-                android:paddingStart="20dp"
-                android:textColorHint="@color/black"
-                android:textSize="15sp"
-                tools:ignore="RtlSymmetry" />
-
-            <EditText
-                android:id="@+id/confirm_password"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/edittextbackground"
-                android:hint="Confirm Password"
-                android:paddingStart="20dp"
-                android:textColorHint="@color/black"
-                android:textSize="15sp"
-                tools:ignore="RtlSymmetry" />
-
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/edittextbackground"
-                android:hint="password"
-                android:paddingStart="20dp"
-                android:textColorHint="@color/black"
+                android:spinnerMode="dropdown"
                 android:textSize="15sp"
                 tools:ignore="RtlSymmetry" />
 
             <Button
-                android:id="@+id/register_btn"
+                android:id="@+id/place_order"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/black"
-                android:text="Register"
+                android:text="Place Order"
                 android:textSize="20sp" />
-
-            <Button
-                android:id="@+id/back_login_btn"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginBottom="30dp"
-                android:backgroundTint="#02000000"
-                android:text="Already have an account? Login"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
