@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/background_block"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp"
@@ -15,6 +15,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:layout_marginTop="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -26,18 +27,23 @@
                 android:layout_marginBottom="30dp"
                 android:gravity="center_horizontal"
                 android:text="Register"
-                android:textColor="@color/black"
-                android:textSize="40sp"
+                android:textColor="@color/white"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <Spinner
+                android:popupBackground="#5b5add"
                 android:id="@+id/role_name_spinner_id"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="left|center_horizontal"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittextbackground"
+                android:maxLines="1"
                 android:spinnerMode="dropdown"
+                android:textColor="@color/white"
+                android:textColorHint="#E5E5E5"
+                android:textStyle="bold"
                 tools:ignore="RtlSymmetry" />
 
             <EditText
@@ -47,9 +53,12 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittextbackground"
                 android:hint="Full Name"
+                android:maxLines="1"
                 android:paddingStart="20dp"
-                android:textColorHint="@color/black"
+                android:textColor="@color/white"
+                android:textColorHint="#E5E5E5"
                 android:textSize="15sp"
+                android:textStyle="bold"
                 tools:ignore="RtlSymmetry" />
 
             <EditText
@@ -59,9 +68,12 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittextbackground"
                 android:hint="Email"
+                android:maxLines="1"
                 android:paddingStart="20dp"
-                android:textColorHint="@color/black"
+                android:textColor="@color/white"
+                android:textColorHint="#E5E5E5"
                 android:textSize="15sp"
+                android:textStyle="bold"
                 tools:ignore="RtlSymmetry" />
 
             <EditText
@@ -71,9 +83,12 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittextbackground"
                 android:hint="Address/Warehouse"
+                android:maxLines="1"
                 android:paddingStart="20dp"
-                android:textColorHint="@color/black"
+                android:textColor="@color/white"
+                android:textColorHint="#E5E5E5"
                 android:textSize="15sp"
+                android:textStyle="bold"
                 tools:ignore="RtlSymmetry" />
 
             <EditText
@@ -83,9 +98,12 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittextbackground"
                 android:hint="Phone Number"
+                android:maxLines="1"
                 android:paddingStart="20dp"
-                android:textColorHint="@color/black"
+                android:textColor="@color/white"
+                android:textColorHint="#E5E5E5"
                 android:textSize="15sp"
+                android:textStyle="bold"
                 tools:ignore="RtlSymmetry" />
 
             <EditText
@@ -95,9 +113,13 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittextbackground"
                 android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:maxLines="1"
                 android:paddingStart="20dp"
-                android:textColorHint="@color/black"
+                android:textColor="@color/white"
+                android:textColorHint="#E5E5E5"
                 android:textSize="15sp"
+                android:textStyle="bold"
                 tools:ignore="RtlSymmetry" />
 
             <EditText
@@ -107,9 +129,13 @@
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/edittextbackground"
                 android:hint="password"
+                android:inputType="textPassword"
+                android:maxLines="1"
                 android:paddingStart="20dp"
-                android:textColorHint="@color/black"
+                android:textColor="@color/white"
+                android:textColorHint="#E5E5E5"
                 android:textSize="15sp"
+                android:textStyle="bold"
                 tools:ignore="RtlSymmetry" />
 
             <Button
@@ -117,9 +143,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="20dp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#F0638A"
                 android:text="Register"
-                android:textSize="20sp" />
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/back_login_btn"
@@ -128,7 +156,7 @@
                 android:layout_marginBottom="30dp"
                 android:backgroundTint="#02000000"
                 android:text="Already have an account? Login"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 

@@ -38,6 +38,9 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        //Set the toolbar title
+        this.setTitle("Register Screen");
+
         databaseManager = new DatabaseManager(RegisterActivity.this);
 
         getStaticRoleName = getResources().getStringArray(R.array.role_name);

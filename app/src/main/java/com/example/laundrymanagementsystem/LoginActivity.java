@@ -24,14 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordId;
     private Button loginButton;
 
-    private String staticVendorEmail = "vendor@gmail.com";
-    private String staticVendorPassword = "123456";
-
     private String staticAdminEmail = "admin@gmail.com";
     private String staticAdminPassword = "123456";
-
-    private String staticUserEmail = "user@gmail.com";
-    private String staticUserPassword = "123456";
 
     private String getInputEmailValue;
     private String getInputPasswordValue;
@@ -44,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         //Set the toolbar title
-        this.setTitle("Login Page");
+        this.setTitle("Login Screen");
 
         databaseManager = new DatabaseManager(LoginActivity.this);
 
@@ -98,9 +92,11 @@ public class LoginActivity extends AppCompatActivity {
                         } else if (Objects.equals(roleName, "VENDOR")) {
                             Intent intent = new Intent(LoginActivity.this, VendorHomeActivity.class);
                             startActivity(intent);
+                        } else if (getInputEmailValue.equals(staticAdminEmail)) {
+                            Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                            startActivity(intent);
                         } else {
                             Toast.makeText(LoginActivity.this, "Invalid credentials info!", Toast.LENGTH_SHORT).show();
-
                         }
                     }
                 }

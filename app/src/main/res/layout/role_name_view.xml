@@ -7,6 +7,8 @@
     android:orientation="vertical">
 
     <TextView
+        android:textColor="@color/white"
+        android:textColorHint="#E5E5E5"
         android:id="@+id/role_name_view_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

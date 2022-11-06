@@ -8,6 +8,15 @@
     android:orientation="vertical"
     tools:context=".UserHomeActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="#5b5add"
+        android:elevation="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@color/white" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -24,7 +33,7 @@
                 android:layout_margin="20dp"
                 android:text="My Order Detail"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
