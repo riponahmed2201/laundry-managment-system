@@ -83,38 +83,25 @@ public class LoginActivity extends AppCompatActivity {
 
                     String roleName;
 
-                    for (Login login : loginArrayList) {
-                        roleName = login.getRoleName();
+                    if (getInputEmailValue.equals(staticAdminEmail) && getInputPasswordValue.equals(staticAdminPassword)) {
+                        Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                        startActivity(intent);
+                    } else {
+                        for (Login login : loginArrayList) {
+                            roleName = login.getRoleName();
 
-                        if (Objects.equals(roleName, "USER")) {
-                            Intent intent = new Intent(LoginActivity.this, PlaceOrderActivity.class);
-                            startActivity(intent);
-                        } else if (Objects.equals(roleName, "VENDOR")) {
-                            Intent intent = new Intent(LoginActivity.this, VendorHomeActivity.class);
-                            startActivity(intent);
-                        } else if (getInputEmailValue.equals(staticAdminEmail)) {
-                            Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Invalid credentials info!", Toast.LENGTH_SHORT).show();
+                            if (Objects.equals(roleName, "USER")) {
+                                Intent intent = new Intent(LoginActivity.this, PlaceOrderActivity.class);
+                                startActivity(intent);
+                            } else if (Objects.equals(roleName, "VENDOR")) {
+                                Intent intent = new Intent(LoginActivity.this, VendorHomeActivity.class);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(LoginActivity.this, "Invalid credentials info!", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 }
-
-//                if (getInputEmailValue.equals(staticAdminEmail)) {
-//                    Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
-//                    startActivity(intent);
-//                }
-//
-//                if (getInputEmailValue.equals(staticVendorEmail)) {
-//                    Intent intent = new Intent(LoginActivity.this, VendorHomeActivity.class);
-//                    startActivity(intent);
-//                }
-//
-//                if (getInputEmailValue.equals(staticUserEmail)) {
-//                    Intent intent = new Intent(LoginActivity.this, PlaceOrderActivity.class);
-//                    startActivity(intent);
-//                }
             }
         });
     }

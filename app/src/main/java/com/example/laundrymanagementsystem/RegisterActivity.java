@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.laundrymanagementsystem.database.DatabaseManager;
@@ -102,8 +103,8 @@ public class RegisterActivity extends AppCompatActivity {
             addressWareHouseId.setError("Address is required.");
             addressWareHouseId.requestFocus();
         } else if (roleName.isEmpty()) {
-            emailId.setError("Role name is required.");
-            emailId.requestFocus();
+            ((TextView) roleNameSpinnerId.getSelectedView()).setError("Role name is required.");
+            roleNameSpinnerId.requestFocus();
         } else if (phoneNumber.isEmpty()) {
             phoneNumberId.setError("Phone number is required.");
             phoneNumberId.requestFocus();

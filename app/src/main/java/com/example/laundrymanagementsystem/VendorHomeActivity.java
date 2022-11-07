@@ -19,6 +19,6 @@ public class VendorHomeActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Home Screen");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Vendor Dashboard");
     }
 }

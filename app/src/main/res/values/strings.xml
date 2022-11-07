@@ -17,11 +17,11 @@
         <item>Bikash</item>
     </string-array>
 
-    <string-array name="select_vendor">
-        <item>Select Vendor</item>
-        <item>Ripon</item>
-        <item>Aziz</item>
-        <item>Siful</item>
+    <string-array name="garment_category_name">
+        <item>Select Category</item>
+        <item>Shirt</item>
+        <item>Pant</item>
+        <item>Polo-Shirt</item>
     </string-array>
 
 </resources>

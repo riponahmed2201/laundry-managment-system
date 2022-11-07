@@ -19,6 +19,6 @@ public class UserHomeActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Home Screen");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("User Dashboard");
     }
 }
