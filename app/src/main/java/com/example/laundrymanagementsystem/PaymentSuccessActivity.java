@@ -10,28 +10,28 @@ import android.widget.Button;
 
 import java.util.Objects;
 
-public class AdminHomeActivity extends AppCompatActivity {
+public class PaymentSuccessActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
-    private Button goToOrderListButton;
+    private Button backToUserHomeButtonId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_home);
+        setContentView(R.layout.activity_payment_success);
 
         toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Admin Dashboard");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Order Confirmation");
 
-        goToOrderListButton = findViewById(R.id.go_to_order_list_button_id);
+        backToUserHomeButtonId = findViewById(R.id.back_to_user_home_button_id);
 
-        goToOrderListButton.setOnClickListener(new View.OnClickListener() {
+        backToUserHomeButtonId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminHomeActivity.this, AdminOrderListActivity.class);
+                Intent intent = new Intent(PaymentSuccessActivity.this, UserHomeActivity.class);
                 startActivity(intent);
             }
         });

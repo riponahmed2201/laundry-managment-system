@@ -109,9 +109,9 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
             if (insertData > 0) {
 
-                Toast.makeText(this, "Order created success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Order created success!", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(PlaceOrderActivity.this, UserHomeActivity.class);
+                Intent intent = new Intent(PlaceOrderActivity.this, PaymentSuccessActivity.class);
                 startActivity(intent);
 
             } else {
