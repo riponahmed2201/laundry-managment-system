@@ -36,6 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String ORDER_ID = "id";
     public static final String VENDOR_EMAIL = "vendor_email";
     public static final String USER_EMAIL = "user_email";
+    public static final String USER_PHONE_NUMBER = "phone_number";
     public static final String PAYMENT_OPTION = "payment_option";
     public static final String GARMENT_CATEGORY = "garment_category";
     public static final String GARMENT_QUANTITY = "garment_quantity";
@@ -43,7 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String STATUS = "status";
 
     //Create Order Table Query
-    public static final String CREATE_ORDER_TABLE_QUERY = "create table " + ORDER_TABLE_NAME + "(" + ORDER_ID + " integer primary key autoincrement, " + VENDOR_EMAIL + " text, " + USER_EMAIL + " text, " + PAYMENT_OPTION + " text, " + GARMENT_CATEGORY + " text, " + GARMENT_QUANTITY + " text, " + ORDER_PLACEMENT + " text, " + STATUS + " text )";
+    public static final String CREATE_ORDER_TABLE_QUERY = "create table " + ORDER_TABLE_NAME + "(" + ORDER_ID + " integer primary key autoincrement, " + VENDOR_EMAIL + " text, " + USER_EMAIL + " text, " + USER_PHONE_NUMBER + "text" + PAYMENT_OPTION + " text, " + GARMENT_CATEGORY + " text, " + GARMENT_QUANTITY + " text, " + ORDER_PLACEMENT + " text, " + STATUS + " text )";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

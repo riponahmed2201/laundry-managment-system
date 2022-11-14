@@ -9,6 +9,7 @@ import android.util.Log;
 import com.example.laundrymanagementsystem.model.Login;
 import com.example.laundrymanagementsystem.model.Order;
 import com.example.laundrymanagementsystem.model.Register;
+import com.example.laundrymanagementsystem.model.VendorList;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,32 @@ public class DatabaseManager {
         sqLiteDatabase.close();
 
         return insertUserData;
+    }
+
+    public ArrayList<Order> getUserOrderDetails(String email) {
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
+        ArrayList<Order> orders = new ArrayList<>();
+        String selectQuery = "SELECT  * FROM " + DatabaseHelper.ORDER_TABLE_NAME + " WHERE email=\'" + email;
+        Cursor cursor = sqLiteDatabase.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+
+                String orderId = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.ORDER_ID));
+                String vendorEmail = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.VENDOR_EMAIL));
+                String userEmail = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.USER_EMAIL));
+                String userPhoneNumber = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.USER_PHONE_NUMBER));
+                String paymentOption = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.PAYMENT_OPTION));
+                String garmentCategory = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.GARMENT_CATEGORY));
+                String garmentQuantity = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.GARMENT_QUANTITY));
+                String orderPlacement = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.ORDER_PLACEMENT));
+                String status = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.STATUS));
+
+                Order order = new Order(orderId, vendorEmail, userEmail, userPhoneNumber, paymentOption, garmentCategory, garmentQuantity, orderPlacement, status);
+                orders.add(order);
+
+            } while (cursor.moveToNext());
+        }
+        return orders;
     }
 
     public ArrayList<Login> getUserDetails(String email, String password) {
@@ -71,6 +98,7 @@ public class DatabaseManager {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(DatabaseHelper.USER_EMAIL, order.getUserEmail());
+        contentValues.put(DatabaseHelper.USER_PHONE_NUMBER, order.getUserPhoneNumber());
         contentValues.put(DatabaseHelper.PAYMENT_OPTION, order.getPaymentOption());
         contentValues.put(DatabaseHelper.GARMENT_CATEGORY, order.getGarmentCategory());
         contentValues.put(DatabaseHelper.GARMENT_QUANTITY, order.getGarmentQuantity());
@@ -99,17 +127,42 @@ public class DatabaseManager {
                 String orderId = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.ORDER_ID));
                 String vendorEmail = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.VENDOR_EMAIL));
                 String userEmail = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.USER_EMAIL));
+                String userPhoneNumber = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.USER_PHONE_NUMBER));
                 String paymentOption = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.PAYMENT_OPTION));
                 String garmentCategory = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.GARMENT_CATEGORY));
                 String garmentQuantity = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.GARMENT_QUANTITY));
                 String orderPlacement = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.ORDER_PLACEMENT));
                 String status = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.STATUS));
 
-                Order order = new Order(orderId, vendorEmail, userEmail, paymentOption, garmentCategory, garmentQuantity, orderPlacement, status);
+                Order order = new Order(orderId, vendorEmail, userEmail, userPhoneNumber, paymentOption, garmentCategory, garmentQuantity, orderPlacement, status);
                 arrayList.add(order);
 
             } while (cursor.moveToNext());
         }
         return arrayList;
     }
+
+//    public ArrayList<VendorList> getVendorsByVendorEmail() {
+//        SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
+//
+//        ArrayList<VendorList> arrayList = new ArrayList<>();
+//
+//        String selectQuery = "SELECT  * FROM " + DatabaseHelper.USER_TABLE_NAME + " WHERE role_name= VENDOR";
+//
+//        Cursor cursor = sqLiteDatabase.rawQuery(selectQuery, null);
+//
+//        if (cursor.moveToFirst()) {
+//            do {
+//
+//                String vendorId = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.ID));
+//                String vendorName = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.FULL_NAME));
+//                String vendorEmail = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.VENDOR_EMAIL));
+//
+//                VendorList vendorList = new VendorList(vendorId, vendorName, vendorEmail);
+//                arrayList.add(vendorList);
+//
+//            } while (cursor.moveToNext());
+//        }
+//        return arrayList;
+//    }
 }

@@ -5,23 +5,32 @@
     <string name="password">Password</string>
 
     <string-array name="role_name">
-        <item>Select Role Name</item>
+        <item>select role name</item>
         <item>USER</item>
         <item>VENDOR</item>
     </string-array>
 
     <string-array name="payment_option">
-        <item>Select Payment Option…</item>
+        <item>select payment option</item>
         <item>Visa Card</item>
+        <item>Master Card</item>
         <item>Nagad</item>
         <item>Bikash</item>
     </string-array>
 
     <string-array name="garment_category_name">
-        <item>Select Category</item>
-        <item>Shirt</item>
-        <item>Pant</item>
-        <item>Polo-Shirt</item>
+        <item>select category</item>
+        <item>Wash &amp; Iron</item>
+        <item>Ironing</item>
+        <item>Dry Cleaning</item>
+        <item>Darning</item>
+    </string-array>
+
+    <string-array name="vendor_list">
+        <item>select vendor name</item>
+        <item>Ripon</item>
+        <item>Siful</item>
+        <item>Nafig</item>
     </string-array>
 
 </resources>

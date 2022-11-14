@@ -1,6 +1,7 @@
 package com.example.laundrymanagementsystem.model;
 
-public class Order {
+public class OrderInformation {
+
     public String orderId;
     public String vendorEmail;
     public String userEmail;
@@ -11,19 +12,9 @@ public class Order {
     public String orderPlacement;
     public String status;
 
-    public Order(String orderId, String vendorEmail, String userEmail, String userPhoneNumber, String paymentOption, String garmentCategory, String garmentQuantity, String orderPlacement, String status) {
+    public OrderInformation(String orderId, String vendorEmail, String userEmail, String userPhoneNumber, String paymentOption, String garmentCategory, String garmentQuantity, String orderPlacement, String status) {
         this.orderId = orderId;
         this.vendorEmail = vendorEmail;
-        this.userEmail = userEmail;
-        this.userPhoneNumber = userPhoneNumber;
-        this.paymentOption = paymentOption;
-        this.garmentCategory = garmentCategory;
-        this.garmentQuantity = garmentQuantity;
-        this.orderPlacement = orderPlacement;
-        this.status = status;
-    }
-
-    public Order(String userEmail, String userPhoneNumber, String paymentOption, String garmentCategory, String garmentQuantity, String orderPlacement, String status) {
         this.userEmail = userEmail;
         this.userPhoneNumber = userPhoneNumber;
         this.paymentOption = paymentOption;

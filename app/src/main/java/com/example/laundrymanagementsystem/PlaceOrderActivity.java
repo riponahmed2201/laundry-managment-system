@@ -3,7 +3,10 @@ package com.example.laundrymanagementsystem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,6 +39,10 @@ public class PlaceOrderActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
     DatabaseManager databaseManager;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    String email;
+    String phoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +50,22 @@ public class PlaceOrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_place_order);
 
         toolbar = findViewById(R.id.toolbar);
-
+        sharedPreferences = getSharedPreferences("Mode", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        email = sharedPreferences.getString("email", "test@gmail.com");
+        phoneNumber = sharedPreferences.getString("phone", "01746******");
+        toolbar.setTitle("Place Order Screen");
+        toolbar.setTitleTextColor(Color.BLACK);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Place Order Screen");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
 
         databaseManager = new DatabaseManager(PlaceOrderActivity.this);
 
@@ -80,7 +100,8 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
         try {
 
-            String userEmail = "user@gmail.com";
+            String userEmail = email;
+            String userPhoneNumber = phoneNumber;
             String paymentOption = paymentOptionSpinnerId.getSelectedItem().toString();
             String garmentCategory = garmentCategorySpinnerId.getSelectedItem().toString();
             String garmentQuantity = garmentQuantityId.getText().toString();
@@ -101,9 +122,9 @@ public class PlaceOrderActivity extends AppCompatActivity {
                 orderPlacementId.requestFocus();
             }
 
-            Log.d("InputData", " \nPayment option : " + paymentOption + "\ngarmentCategory :" + garmentCategory + "\ngarmentQuantity :" + garmentQuantity + "\norderPlacement :" + orderPlacement);
+//            Log.d("InputData", " \nPayment option : " + paymentOption + "\ngarmentCategory :" + garmentCategory + "\ngarmentQuantity :" + garmentQuantity + "\norderPlacement :" + orderPlacement);
 
-            Order order = new Order(userEmail, paymentOption, garmentCategory, garmentQuantity, orderPlacement, status);
+            Order order = new Order(userEmail, userPhoneNumber, paymentOption, garmentCategory, garmentQuantity, orderPlacement, status);
 
             long insertData = databaseManager.createNewOrder(order);
 

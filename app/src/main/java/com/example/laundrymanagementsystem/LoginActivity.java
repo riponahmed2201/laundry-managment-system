@@ -3,7 +3,9 @@ package com.example.laundrymanagementsystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -31,12 +33,16 @@ public class LoginActivity extends AppCompatActivity {
     private String getInputPasswordValue;
 
     DatabaseManager databaseManager;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        sharedPreferences = getSharedPreferences("Mode", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
         //Set the toolbar title
         this.setTitle("Login Screen");
 
@@ -86,16 +92,33 @@ public class LoginActivity extends AppCompatActivity {
                     if (getInputEmailValue.equals(staticAdminEmail) && getInputPasswordValue.equals(staticAdminPassword)) {
                         Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                         startActivity(intent);
+                        finish();
+                        editor.putString("User", "admin");
+                        editor.putString("Login", "true");
+                        editor.apply();
+
                     } else {
                         for (Login login : loginArrayList) {
                             roleName = login.getRoleName();
 
                             if (Objects.equals(roleName, "USER")) {
-                                Intent intent = new Intent(LoginActivity.this, PlaceOrderActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, UserHomeActivity.class);
                                 startActivity(intent);
+                                finish();
+                                editor.putString("User", "user");
+                                editor.putString("Login", "true");
+                                editor.putString("email", login.getEmail());
+                                editor.putString("phone", login.getPhoneNumber());
+                                editor.apply();
                             } else if (Objects.equals(roleName, "VENDOR")) {
                                 Intent intent = new Intent(LoginActivity.this, VendorHomeActivity.class);
                                 startActivity(intent);
+                                finish();
+                                editor.putString("User", "vendor");
+                                editor.putString("Login", "true");
+                                editor.putString("email", login.getEmail());
+                                editor.putString("phone", login.getPhoneNumber());
+                                editor.apply();
                             } else {
                                 Toast.makeText(LoginActivity.this, "Invalid credentials info!", Toast.LENGTH_SHORT).show();
                             }
