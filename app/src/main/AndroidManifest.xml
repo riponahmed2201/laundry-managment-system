@@ -13,6 +13,13 @@
         android:theme="@style/Theme.LaundryManagementSystem"
         tools:targetApi="31">
         <activity
+            android:name=".UserOrderActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".OrderAssignToVendorActivity"
             android:exported="false">
             <meta-data

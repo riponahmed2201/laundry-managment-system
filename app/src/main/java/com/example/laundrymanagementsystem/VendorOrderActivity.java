@@ -56,11 +56,12 @@ public class VendorOrderActivity extends AppCompatActivity {
 
         databaseManager = new DatabaseManager(VendorOrderActivity.this);
 
+        Utiles.orderInformations.clear();
+
         ArrayList<Order> orderArrayList = databaseManager.getOrderDetails();
 
         for (Order order : orderArrayList) {
             OrderInformation orderInformation = new OrderInformation(order.getOrderId(), order.getVendorEmail(), order.getUserEmail(), order.getUserPhoneNumber(), order.getPaymentOption(), order.getGarmentCategory(), order.getGarmentQuantity(), order.getOrderPlacement(), order.getStatus());
-            Utiles.orderInformations.clear();
             Utiles.orderInformations.add(orderInformation);
         }
 

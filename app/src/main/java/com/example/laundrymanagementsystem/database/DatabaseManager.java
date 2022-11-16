@@ -62,7 +62,6 @@ public class DatabaseManager {
                 String status = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.STATUS));
 
                 Order order = new Order(orderId, vendorEmail, userEmail, userPhoneNumber, paymentOption, garmentCategory, garmentQuantity, orderPlacement, status);
-                orders.clear();
                 orders.add(order);
 
             } while (cursor.moveToNext());
@@ -90,7 +89,6 @@ public class DatabaseManager {
                 String phoneNumber = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.PHONE_NUMBER));
 
                 Login login = new Login(fullName, getEmail, address, roleName, phoneNumber);
-                arrayList.clear();
                 arrayList.add(login);
 
             } while (cursor.moveToNext());
@@ -142,7 +140,6 @@ public class DatabaseManager {
                 String status = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.STATUS));
 
                 Order order = new Order(orderId, vendorEmail, userEmail, userPhoneNumber, paymentOption, garmentCategory, garmentQuantity, orderPlacement, status);
-                arrayList.clear();
                 arrayList.add(order);
 
             } while (cursor.moveToNext());
