@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.laundrymanagementsystem.adapter.UserOrderListRecyclerViewAdapter;
 import com.example.laundrymanagementsystem.database.DatabaseManager;
@@ -51,6 +52,13 @@ public class UserOrderActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         databaseManager = new DatabaseManager(UserOrderActivity.this);
 
