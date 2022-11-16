@@ -10,6 +10,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -19,6 +21,8 @@ import java.util.Objects;
 public class VendorHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
+
+    private Button goToOrderListButton;
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -35,6 +39,16 @@ public class VendorHomeActivity extends AppCompatActivity implements NavigationV
 
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Vendor Dashboard");
+
+        goToOrderListButton = findViewById(R.id.go_to_order_list_button_id);
+
+        goToOrderListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VendorHomeActivity.this, VendorOrderActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -40,10 +40,14 @@ public class DatabaseManager {
     }
 
     public ArrayList<Order> getUserOrderDetails(String email) {
+
         SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
         ArrayList<Order> orders = new ArrayList<>();
-        String selectQuery = "SELECT  * FROM " + DatabaseHelper.ORDER_TABLE_NAME + " WHERE email=\'" + email;
+
+        String selectQuery = "SELECT  * FROM " + DatabaseHelper.ORDER_TABLE_NAME + " WHERE user_email=\'" + email + "\'";
+
         Cursor cursor = sqLiteDatabase.rawQuery(selectQuery, null);
+
         if (cursor.moveToFirst()) {
             do {
 
@@ -58,10 +62,12 @@ public class DatabaseManager {
                 String status = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.STATUS));
 
                 Order order = new Order(orderId, vendorEmail, userEmail, userPhoneNumber, paymentOption, garmentCategory, garmentQuantity, orderPlacement, status);
+                orders.clear();
                 orders.add(order);
 
             } while (cursor.moveToNext());
         }
+
         return orders;
     }
 
@@ -84,6 +90,7 @@ public class DatabaseManager {
                 String phoneNumber = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.PHONE_NUMBER));
 
                 Login login = new Login(fullName, getEmail, address, roleName, phoneNumber);
+                arrayList.clear();
                 arrayList.add(login);
 
             } while (cursor.moveToNext());
@@ -135,6 +142,7 @@ public class DatabaseManager {
                 String status = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.STATUS));
 
                 Order order = new Order(orderId, vendorEmail, userEmail, userPhoneNumber, paymentOption, garmentCategory, garmentQuantity, orderPlacement, status);
+                arrayList.clear();
                 arrayList.add(order);
 
             } while (cursor.moveToNext());

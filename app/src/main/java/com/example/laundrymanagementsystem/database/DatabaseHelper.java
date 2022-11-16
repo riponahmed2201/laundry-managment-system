@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "laundry";
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 4;
 
     public static final String USER_TABLE_NAME = "users";
     public static final String ORDER_TABLE_NAME = "orders";
@@ -44,7 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String STATUS = "status";
 
     //Create Order Table Query
-    public static final String CREATE_ORDER_TABLE_QUERY = "create table " + ORDER_TABLE_NAME + "(" + ORDER_ID + " integer primary key autoincrement, " + VENDOR_EMAIL + " text, " + USER_EMAIL + " text, " + USER_PHONE_NUMBER + "text" + PAYMENT_OPTION + " text, " + GARMENT_CATEGORY + " text, " + GARMENT_QUANTITY + " text, " + ORDER_PLACEMENT + " text, " + STATUS + " text )";
+    public static final String CREATE_ORDER_TABLE_QUERY = "create table " + ORDER_TABLE_NAME + "(" + ORDER_ID + " integer primary key autoincrement, " + VENDOR_EMAIL + " text, " + USER_EMAIL + " text, " + USER_PHONE_NUMBER + " text, " + PAYMENT_OPTION + " text, " + GARMENT_CATEGORY + " text, " + GARMENT_QUANTITY + " text, " + ORDER_PLACEMENT + " text, " + STATUS + " text )";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

@@ -123,6 +123,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
             }
 
 //            Log.d("InputData", " \nPayment option : " + paymentOption + "\ngarmentCategory :" + garmentCategory + "\ngarmentQuantity :" + garmentQuantity + "\norderPlacement :" + orderPlacement);
+            Log.d("InputData", "\nUser Phone Number :" + userPhoneNumber);
 
             Order order = new Order(userEmail, userPhoneNumber, paymentOption, garmentCategory, garmentQuantity, orderPlacement, status);
 
@@ -136,7 +137,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
                 startActivity(intent);
 
             } else {
-                Toast.makeText(this, "Order created failed!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Order created failed!" + insertData, Toast.LENGTH_LONG).show();
             }
         } catch (Exception exception) {
             Toast.makeText(this, "Error Found: " + exception, Toast.LENGTH_LONG).show();

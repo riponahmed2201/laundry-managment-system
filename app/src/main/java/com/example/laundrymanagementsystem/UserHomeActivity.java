@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -58,18 +59,23 @@ public class UserHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(UserHomeActivity.this, PlaceOrderActivity.class));
             }
         });
+
         databaseManager = new DatabaseManager(UserHomeActivity.this);
 
-        ArrayList<Order> orderArrayList = databaseManager.getOrderDetails();
+        String getUserEmail = sharedPreferences.getString("email", "");
 
-        for (Order order : orderArrayList) {
-            OrderInformation orderInformation = new OrderInformation(order.getOrderId(), order.getVendorEmail(), order.getUserEmail(), order.getUserPhoneNumber(), order.getPaymentOption(), order.getGarmentCategory(), order.getGarmentQuantity(), order.getOrderPlacement(), order.getStatus());
-            Utiles.orderInformations.add(orderInformation);
+        ArrayList<Order> orderArrayList = databaseManager.getUserOrderDetails(getUserEmail);
+
+        if (!orderArrayList.isEmpty()) {
+            for (Order order : orderArrayList) {
+                OrderInformation orderInformation = new OrderInformation(order.getOrderId(), order.getVendorEmail(), order.getUserEmail(), order.getUserPhoneNumber(), order.getPaymentOption(), order.getGarmentCategory(), order.getGarmentQuantity(), order.getOrderPlacement(), order.getStatus());
+                Utiles.orderInformations.clear();
+                Utiles.orderInformations.add(orderInformation);
+            }
+
+            adapter = new UserOrderListRecyclerViewAdapter(UserHomeActivity.this);
+            userOrderList.setAdapter(adapter);
         }
-
-        adapter = new UserOrderListRecyclerViewAdapter(UserHomeActivity.this);
-        userOrderList.setAdapter(adapter);
-
     }
 
     @Override

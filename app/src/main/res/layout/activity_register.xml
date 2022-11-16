@@ -15,9 +15,9 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_marginTop="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:orientation="vertical">
 
             <TextView
@@ -32,7 +32,6 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:popupBackground="#5b5add"
                 android:id="@+id/role_name_spinner_id"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -40,6 +39,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittextbackground"
                 android:maxLines="1"
+                android:popupBackground="#5b5add"
                 android:spinnerMode="dropdown"
                 android:textColor="@color/white"
                 android:textColorHint="#E5E5E5"
@@ -106,13 +106,14 @@
                 android:textStyle="bold"
                 tools:ignore="RtlSymmetry" />
 
+
             <EditText
-                android:id="@+id/confirm_password"
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/edittextbackground"
-                android:hint="Confirm Password"
+                android:hint="password"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:paddingStart="20dp"
@@ -123,12 +124,12 @@
                 tools:ignore="RtlSymmetry" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/confirm_password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/edittextbackground"
-                android:hint="password"
+                android:hint="Confirm Password"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:paddingStart="20dp"

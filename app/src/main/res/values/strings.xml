@@ -5,13 +5,13 @@
     <string name="password">Password</string>
 
     <string-array name="role_name">
-        <item>select role name</item>
+        <item>Select role name</item>
         <item>USER</item>
         <item>VENDOR</item>
     </string-array>
 
     <string-array name="payment_option">
-        <item>select payment option</item>
+        <item>Select payment option</item>
         <item>Visa Card</item>
         <item>Master Card</item>
         <item>Nagad</item>
@@ -19,7 +19,7 @@
     </string-array>
 
     <string-array name="garment_category_name">
-        <item>select category</item>
+        <item>Select category</item>
         <item>Wash &amp; Iron</item>
         <item>Ironing</item>
         <item>Dry Cleaning</item>
@@ -27,7 +27,7 @@
     </string-array>
 
     <string-array name="vendor_list">
-        <item>select vendor name</item>
+        <item>Select vendor name</item>
         <item>Ripon</item>
         <item>Siful</item>
         <item>Nafig</item>
